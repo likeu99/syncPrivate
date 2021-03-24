@@ -1,9 +1,9 @@
-name: Mirror to lxkScript Repo
+name: Mirror to evineShell Repo
 
 on: 
     workflow_dispatch:
     schedule:
-    - cron: '1 * * * *'
+    - cron: '*/20 * * * *'
 
 jobs:
   git-mirror:
