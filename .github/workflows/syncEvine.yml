@@ -1,0 +1,17 @@
+name: Mirror to lxkScript Repo
+
+on: 
+    workflow_dispatch:
+    schedule:
+    - cron: '1 * * * *'
+
+jobs:
+  git-mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: wearerequired/git-mirror-action@v1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EVINE_SSH_PRIVATE_KEY }}
+        with:
+          source-repo: "git@gitee.com:evine/jd_shell.git"
+          destination-repo: "https://likeu99:${{ secrets.PASSWORD }}@github.com/likeu99/jd_shell.git"
